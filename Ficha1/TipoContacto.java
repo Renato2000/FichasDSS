@@ -17,11 +17,28 @@ public class TipoContacto{
 		this.valorTipo = valor;		
 	}
 
-	public void alterarNomeTipo(String nome){
+	public TipoContacto(TipoContacto tc){
+		this.nomeTipo = tc.getNomeTipo();
+		this.valorTipo = tc.getValorTipo();		
+	}
+
+	public TipoContacto clone(){
+		return new TipoContacto(this);
+	}
+
+	public String getNomeTipo(){
+		return this.nomeTipo;
+	}
+
+	public String getValorTipo(){
+		return this.valorTipo;
+	}
+
+	public void setNomeTipo(String nome){
 		this.nomeTipo = nome;
 	}
 
-	public void alterarValorTipo(String valor){
+	public void setValorTipo(String valor){
 		this.valorTipo = valor;
 	}
 }
