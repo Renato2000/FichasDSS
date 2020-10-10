@@ -8,10 +8,7 @@ public class GestContView implements MyObserver{
 	public void run(){
 		System.out.println("Runing...");
 		int op = 1;
-		while(op != 0){
-			this.showOptions();
-			
-		}
+		this.showOptions();
 	}
 
 	public void update(MyObservable source, Object value){
