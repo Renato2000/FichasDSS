@@ -1,0 +1,23 @@
+Use Case: Registar a Requisição de Livro
+Cenário: ...
+Pré-condição: Funcionário está autenticado
+Pós-condição: O sistema fica com mais um registo de requisição
+	Fluxo normal:
+		1. Funcionário fornece codigo do livro e codigo do utente
+		2. Sistema verifica situação do utente
+		3. Sistema verifica disponibilidade do livro
+		4. Sistema verifica se existe papel
+		5. Sistema regista a requisição do livro pelo utente e atualiza estado do livro (estado do livro passa a registado)
+		6. Imprime talão comprovativo
+	Fluxo exceção 1: [utente não registado] (passo 2)
+		2.1. Sistema informa que utente não existe
+	Fluxo exceção 2: [utente tem multas para pagar] (passo 2)
+		2.1. Sistema informa que tem de pagar as multas
+	Fluxo exceção 3: [livro não pode ser registado] (passo 3)
+		3.1. Sistema informa que não é possível registar o livro
+	Fluxo alternativo 4: [não existe papel] (passo 4)
+		4.1. Sistema informa que não pode imprimir talão comprovativo
+		4.2. Funcionário aceita prosseguir
+		4.3. Sistema regista a requisição e atualiza o estado do livro
+	Fluxo exceção 5: [funcionário não aceita prosseguir] (passo 4.2)
+		4.2.1. O sistema informa que a operação foi cancelada
