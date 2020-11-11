@@ -1,0 +1,47 @@
+UC1 - Registar requisição
+1- Identificação de responsabilidades
+	(2.)validar utente existe
+	(3.)verifica se tem multas por pagar
+	(4.)verifica disponibilidade livro
+	(5.)regista requisição
+	(5.)atualiza estado livro
+	(6)calcular data entrega
+	(7.)imprimir talão
+	(2.2)cancelar requisição
+	(3.1)calcula multa
+	(3.2)registar pagamento multa
+	(3.3)prolongar emprestimo de livros em atraso
+
+2- API Lógica Negócio
+	validarUtente(codUtente : String) : boolean -> SubSistemaUtentes
+	validarMultarPorPagar(codUtente : Stirng) : boolean -> SubSistemaRequisicoes
+	validarDisponibilidade(codLivro : String) : boolean -> SubSistemaCatalogo
+	registarRequisicao(requisicao : Requisicao) -> SubSistemaRequisicoes
+	atualizarEstado(codLivro : String, estado : Estado) -> SubSistemaCatalogo
+	calcularMulta(codCliente : String) : double -> SubSistemaRequisicoes
+	prolongarEmprestimo(codLivro : String, tempo : Date) -> SubSistemaRequisicoes
+	calcularDataEntrega(codRequisicao : String) : Date -> SubSistemaRequisicoes
+	registarPagamentoMulta(codCliente : String, valor : double) -> SubSistemaUtentes
+	imprimeTalao(codRequisicao : String) -> SubSistemaRequisicoes
+	cancelarRequisicao(codRequisicao : String) -> SubSistemaRequisicoes
+
+3-Identificação dos subsistemas
+	SubSistemaUtentes
+	SubSistemaCatalogo
+	SubSistemaRequisicoes
+
+UC2 - Registar entrega de livro
+1- Identificação de responsabilidades
+	(2.)verificar prazo entrega
+	(3.)regista entrega
+	(3.2.2)registar multa por pagar
+
+2-API Lógica Negócio
+	verificarPrazoEntrega(codLivro : String, data : Date) : boolean -> SubSistemaRequisicoes
+	registarEntrega(codLivro : String) -> SubSistemaRequisicoes
+	registarMulta(codCliente : String, valor : double) -> SubSistemaUtentes
+
+3-Identificação dos subsistemas
+	SubSistemaUtentes
+	SubSistemaCatalogo
+	SubSistemaRequisicoes
